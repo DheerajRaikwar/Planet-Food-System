@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.dao;
+package planetfood.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,8 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import theplanetfood.pojo.Category;
-import theplanetfood.dbutil.DBConnection;
+//import java.pojo.Cutil.Localeory;
+import planetfood.dbutil.DBConnection;
 
 /**
  *

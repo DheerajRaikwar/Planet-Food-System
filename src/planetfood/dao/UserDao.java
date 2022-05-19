@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.dao;
+package planetfood.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import theplanetfood.dbutil.DBConnection;
-import theplanetfood.pojo.User;
+import planetfood.dbutil.DBConnection;
+import planetfood.Pojo.User;
 
 
 
@@ -44,7 +44,7 @@ public class UserDao {
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("insert into users values(?,?,?,?,?)");
         ps.setString(1,u.getUserId() );
-        ps.setString(2, u.getUserName());
+        ps.setString(2, u.getUsername());
         ps.setString(3, u.getEmpId());
         ps.setString(4, u.getPassword());
         ps.setString(5, u.getUserType());

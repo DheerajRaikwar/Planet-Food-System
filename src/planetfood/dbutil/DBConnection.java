@@ -22,7 +22,7 @@ public class DBConnection {
        try
         {
        Class.forName("oracle.jdbc.OracleDriver");
-       conn=DriverManager.getConnection("jdbc:oracle:thin:@//DHEERAJ-PC:1521/xe","planetfood","dheeraj0206");
+       conn=DriverManager.getConnection("jdbc:oracle:thin:@//DESKTOP-LIVKHIO:1521/xe","dheeraj","dheeraj");
        System.out.println("Connection opened!");
         }
    catch(Exception ex)
