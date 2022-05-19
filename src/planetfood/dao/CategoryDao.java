@@ -22,6 +22,8 @@ import planetfood.dbutil.DBConnection;
  * @author ROYAL CHHORA
  */
 public class CategoryDao {
+    
+    // getting categories id hashmap 
     public static HashMap<String,String>getAllcategoryID()throws SQLException
     {
     Connection conn=DBConnection.getConnection();
@@ -36,7 +38,11 @@ public class CategoryDao {
     }
     return categories;
     }
-     public static String getNewId()throws SQLException{
+    
+    
+    
+    // Generating new Id for category Id
+    public static String getNewId()throws SQLException{
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("select count(*) from categories");
         int id=101;
@@ -47,6 +53,8 @@ public class CategoryDao {
         }
         return "C"+id;
     }
+    
+    //adding category 
     public static boolean addCategory(String catId,String catName)throws SQLException{
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("insert into categories values(?,?)");
@@ -55,6 +63,8 @@ public class CategoryDao {
         int result=ps.executeUpdate();
         return (result==1);
     }
+    
+    //get category name by category id
     public static String getCatNameByCatId(String catId)throws SQLException{
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("select cat_name from categories where cat_id=?");

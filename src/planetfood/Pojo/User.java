@@ -7,6 +7,19 @@ public class User {
     private String userName;
     private String password;
     private String userType;
+    private String employeeId;
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+   
+    
+    
 
     public String getUserName() {
         return userName;

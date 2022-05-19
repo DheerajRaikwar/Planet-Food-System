@@ -44,8 +44,8 @@ public class UserDao {
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("insert into users values(?,?,?,?,?)");
         ps.setString(1,u.getUserId() );
-        ps.setString(2, u.getUsername());
-        ps.setString(3, u.getEmpId());
+        ps.setString(2, u.getUserName());
+        ps.setString(3, u.getEmployeeId());
         ps.setString(4, u.getPassword());
         ps.setString(5, u.getUserType());
         int result=ps.executeUpdate();
@@ -71,7 +71,7 @@ public class UserDao {
         while(rs.next()){
             User u=new User();
             u.setUserId(userId);
-            u.setEmpId(rs.getString("empid"));
+            u.setEmployeeId(rs.getString("empid"));
             u.setUserName(rs.getString("username"));
             userData.put(userId, u);
         }
@@ -88,7 +88,7 @@ public class UserDao {
         Connection conn=DBConnection.getConnection();
         Statement st=conn.createStatement();
         ArrayList<String>empId=new ArrayList<>();
-        ResultSet rs=st.executeQuery("select empid from employees where job='CASHIER'");
+        ResultSet rs=st.executeQuery("select empid from employee where job='CASHIER'");
         while(rs.next())
         {
             String empid=rs.getString("empid");

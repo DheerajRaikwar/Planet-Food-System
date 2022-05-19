@@ -11,11 +11,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import planetfood.dbutil.DBConnection;
 import planetfood.Pojo.Order;
-import planetfood.Pojo.Order_details;
+import planetfood.Pojo.OrderDetails;
 
 /**
  *
- * @author ROYAL CHHORA
+ * @author 
  */
 public class OrderDao {
     public static ArrayList<Order>getOrdersByDate(Date startDate,Date endDate)throws SQLException
@@ -32,59 +32,58 @@ public class OrderDao {
                                ArrayList<Order>orderList=new ArrayList<Order>();
                                while(rs.next()){
                                    Order obj=new Order();
-                                   obj.setOrdId(rs.getString("ord_id"));
+                                   obj.setOrderId(rs.getString("ord_id"));
                                    java.sql.Date d=rs.getDate("ord_date");
                                    SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
                                    String dateStr=sdf.format(d);
-                                   obj.setOrdDate(dateStr);
+                                   obj.setOrderDate(dateStr);
                                    obj.setOrderAmount(rs.getDouble("ord_amount"));
                                    obj.setGst(rs.getDouble("gst"));
                                    obj.setGstAmount(rs.getDouble("gst_amount"));
                                    obj.setGrandTotal(rs.getDouble("grand_total"));           
-                                    obj.setDiscount(rs.getDouble("discount"));
-                                   obj.setUserid(rs.getString("userid"));
+                                   obj.setDiscont(rs.getDouble("discount"));
+                                   obj.setUserId(rs.getString("userid"));
                                    orderList.add(obj);
                                    
                                }
-return orderList;
-
-
+                               return orderList;
     } 
+    
     public static String getNewID()throws SQLException{
        Connection conn=DBConnection.getConnection();
-       PreparedStatement ps=conn.prepareStatement("Select count(*) from Orders ");
+       PreparedStatement ps=conn.prepareStatement("Select count(*) from orders ");
        int id=101;
        ResultSet rs=ps.executeQuery();
        if(rs.next())
        {
            id=id+rs.getInt(1);
        }
-       return"OD"+id;
+       return "OD"+id;
     }
 
        
-public static boolean addOrder(Order order,ArrayList<OrderDetail>orderList)throws Exception{
+public static boolean addOrder(Order order,ArrayList<OrderDetails>orderList)throws Exception{
         Connection conn=DBConnection.getConnection();
        PreparedStatement ps=conn.prepareStatement("Insert into Orders values(?,?,?,?,?,?,?,?)");
-         ps.setString(1, order.getOrdId());
-         String dateStr=order.getOrdDate();
+         ps.setString(1, order.getOrderId());
+         String dateStr=order.getOrderDate();
          SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
          java.util.Date d1=sdf.parse(dateStr);
          java.sql.Date d2=new java.sql.Date(d1.getTime());
          ps.setDate(2, d2);
          ps.setDouble(3, order.getGst());
          ps.setDouble(4, order.getGstAmount());
-         ps.setDouble(5, order.getDiscount());
+         ps.setDouble(5, order.getDiscont());
          ps.setDouble(6, order.getGrandTotal());
-         ps.setString(7,order.getUserid());
+         ps.setString(7,order.getUserId());
          ps.setDouble(8, order.getOrderAmount());
           int x=ps.executeUpdate();  
                          PreparedStatement ps2=conn.prepareStatement("Insert into order_details values(?,?,?,?)");
                          int count=0,y;
-                         for(OrderDetail detail:orderList)
+                         for(OrderDetails detail:orderList)
                          {
-                             ps2.setString(1, detail.getOrdId());
-                             ps2.setString(2, detail.getProdId());
+                             ps2.setString(1, detail.getOrderId());
+                             ps2.setString(2, detail.getProductId());
                              ps2.setDouble(3, detail.getQuantity());
                              ps2.setDouble(4, detail.getCost());
                               y=ps2.executeUpdate();  
@@ -104,16 +103,16 @@ public static boolean addOrder(Order order,ArrayList<OrderDetail>orderList)throw
         while(rs.next())
         {
             Order o=new Order();
-            o.setOrdId(rs.getString("ord_id"));
+            o.setOrderId(rs.getString("ord_id"));
             java.util.Date d=rs.getDate("ord_date");
             SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
             String dateStr=sdf.format(d);
-            o.setOrdDate(dateStr);
+            o.setOrderDate(dateStr);
             o.setGst(rs.getDouble("gst"));
             o.setGstAmount(rs.getDouble("gst_amount"));
-            o.setDiscount(rs.getDouble("discount"));
+            o.setDiscont(rs.getDouble("discount"));
             o.setGrandTotal(rs.getDouble("grand_total"));
-            o.setUserid(rs.getString("userid"));
+            o.setUserId(rs.getString("userid"));
             o.setOrderAmount(rs.getDouble("ord_amount"));
             allOrders.add(o);
         }
@@ -129,16 +128,16 @@ public static boolean addOrder(Order order,ArrayList<OrderDetail>orderList)throw
         while(rs.next())
         {
             Order o=new Order();
-            o.setOrdId(rs.getString("ord_id"));
+            o.setOrderId(rs.getString("ord_id"));
             java.util.Date d=rs.getDate("ord_date");
             SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
             String dateStr=sdf.format(d);
-            o.setOrdDate(dateStr);
+            o.setOrderDate(dateStr);
             o.setGst(rs.getDouble("gst"));
             o.setGstAmount(rs.getDouble("gst_amount"));
-            o.setDiscount(rs.getDouble("discount"));
+            o.setDiscont(rs.getDouble("discount"));
             o.setGrandTotal(rs.getDouble("grand_total"));
-            o.setUserid(rs.getString("userid"));
+            o.setUserId(rs.getString("userid"));
             o.setOrderAmount(rs.getDouble("ord_amount"));
             allOrders.add(o);
         }
@@ -153,11 +152,11 @@ public static boolean addOrder(Order order,ArrayList<OrderDetail>orderList)throw
          while(rs.next())
          {
              Order o=new Order();
-             o.setOrdId(rs.getString("ord_id"));
+             o.setOrderId(rs.getString("ord_id"));
              java.util.Date d=rs.getDate("ord_date");
              SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
              String date=sdf.format(d);
-             o.setOrdDate(date);
+             o.setOrderDate(date);
              o.setGrandTotal(rs.getDouble("grand_total"));
              transactions.add(o);
          }

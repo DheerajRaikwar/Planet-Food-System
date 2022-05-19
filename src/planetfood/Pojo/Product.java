@@ -7,6 +7,7 @@ public class Product {
   private String categoryId;
   private String productName;
   private Double productPrice;
+  private String isActive;
 
     public String getProductId() {
         return productId;
@@ -38,6 +39,14 @@ public class Product {
 
     public void setProductPrice(Double productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
     }
 
        

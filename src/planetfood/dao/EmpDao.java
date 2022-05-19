@@ -22,9 +22,9 @@ import planetfood.dbutil.DBConnection;
 public class EmpDao {
      public static boolean addEmp(Employee e)throws SQLException{
         Connection conn=DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("insert into employees values(?,?,?,?)");
-        ps.setString(1, e.getEmpId());
-        ps.setString(2, e.getEmpName());
+        PreparedStatement ps=conn.prepareStatement("insert into employee values(?,?,?,?)");
+        ps.setString(1, e.getEmployeeId());
+        ps.setString(2, e.getEmployeeName());
         ps.setString(3, e.getJob());
         ps.setDouble(4, e.getSalary());
         int result=ps.executeUpdate();
@@ -32,7 +32,7 @@ public class EmpDao {
     }
     public static String getNewId()throws SQLException{
         Connection conn=DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("select count(*) from employees");
+        PreparedStatement ps=conn.prepareStatement("select count(*) from employee");
         int id=101;
         ResultSet rs=ps.executeQuery();
         if(rs.next())
@@ -44,7 +44,7 @@ public class EmpDao {
     public static HashMap<String,Employee>getEmployeeByEmpId(String empid)throws SQLException
     {
         Connection conn=DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("select * from employees where empid=?");
+        PreparedStatement ps=conn.prepareStatement("select * from employee where empid=?");
         ps.setString(1, empid);
         ResultSet rs=ps.executeQuery();
         HashMap<String,Employee>employee=new HashMap<>();
@@ -52,31 +52,31 @@ public class EmpDao {
         while(rs.next())
         {
             Employee e=new Employee();
-            e.setEmpId(empid);
-            e.setEmpName(rs.getString("ename"));
+            e.setEmployeeId(empid);
+            e.setEmployeeName(rs.getString("ename"));
             e.setJob(rs.getString("job"));
             e.setSalary(rs.getDouble("sal"));
-            employee.put(e.getEmpId(), e);
+            employee.put(e.getEmployeeId(), e);
         }
         return employee;
-        
-        
     }
+    
     public static boolean updateEmp(Employee e)throws SQLException{
         Connection conn=DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("update employees set ename=?,job=?,sal=? where empid=?");
-     ps.setString(1, e.getEmpName());
+        PreparedStatement ps=conn.prepareStatement("update employee set ename=?,job=?,sal=? where empid=?");
+     ps.setString(1, e.getEmployeeName());
      ps.setString(2, e.getJob());
      ps.setDouble(3, e.getSalary());
-     ps.setString(4, e.getEmpId());
+     ps.setString(4, e.getEmployeeId());
      int result=ps.executeUpdate();
      return (result==1);
     }
+    
     public static ArrayList<String>getAllEmpId()throws SQLException{
         Connection conn=DBConnection.getConnection();
         Statement st=conn.createStatement();
         ArrayList<String>allEmpId=new ArrayList<String>();
-        ResultSet rs=st.executeQuery("select empid from employees");
+        ResultSet rs=st.executeQuery("select empid from employee");
         while(rs.next())
         {
            String empId=rs.getString("empid");
@@ -88,12 +88,12 @@ public class EmpDao {
        Connection conn=DBConnection.getConnection();
        Statement st=conn.createStatement();
        ArrayList<Employee>allEmp=new ArrayList<>();
-       ResultSet rs=st.executeQuery("select * from employees");
+       ResultSet rs=st.executeQuery("select * from employee");
        while(rs.next())
        {
            Employee e=new Employee();
-           e.setEmpId(rs.getString("empid"));
-           e.setEmpName(rs.getString("ename"));
+           e.setEmployeeId(rs.getString("empid"));
+           e.setEmployeeName(rs.getString("ename"));
            e.setJob(rs.getString("job"));
            e.setSalary(rs.getDouble("sal"));
            allEmp.add(e);
@@ -106,7 +106,7 @@ public class EmpDao {
        PreparedStatement ps1=conn.prepareStatement("delete from users where empid=? and usertype='CASHIER' or usertype='CHEF' or usertype='MANAGER'");
        ps1.setString(1, empid);
        int status1=ps1.executeUpdate();
-       PreparedStatement ps=conn.prepareStatement("delete from employees where empid=?");
+       PreparedStatement ps=conn.prepareStatement("delete from employee where empid=?");
        ps.setString(1, empid);
        int status=ps.executeUpdate();
        if(status==1&&status1>=-1)
