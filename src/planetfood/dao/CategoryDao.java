@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import planetfood.Pojo.Categories;
 
 //import java.pojo.Cutil.Localeory;
 import planetfood.dbutil.DBConnection;
@@ -74,16 +75,16 @@ public class CategoryDao {
         int result=ps.executeUpdate();
         return (result==1);
     }
-    public static ArrayList<Category>getAllData()throws SQLException{
+    public static ArrayList<Categories>getAllData()throws SQLException{
         Connection conn=DBConnection.getConnection();
         Statement st=conn.createStatement();
         ResultSet rs=st.executeQuery("select * from categories");
-        ArrayList<Category>allcategory=new ArrayList<>();
+        ArrayList<Categories>allcategory=new ArrayList<>();
         while(rs.next())
         {
-            Category c=new Category();
-            c.setCatId(rs.getString("cat_id"));
-            c.setCatName(rs.getString("cat_name"));
+            Categories c=new Categories();
+            c.setCategoryId(rs.getString("cat_id"));
+            c.setCategoryName(rs.getString("cat_name"));
             allcategory.add(c);
         }
         return allcategory;

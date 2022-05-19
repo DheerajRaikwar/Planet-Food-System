@@ -3,53 +3,44 @@ package planetfood.Pojo;
 
 public class Product {
     
-  private String prodId;
-  private String catId;
-  private String prodName;
-  private Double prodPrice;
+  private String productId;
+  private String categoryId;
+  private String productName;
+  private Double productPrice;
 
-    public String getProdId() {
-        return prodId;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getCatId() {
-        return catId;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setCatId(String catId) {
-        this.catId = catId;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getProdName() {
-        return prodName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public double getProdPrice() {
-        return prodPrice;
+    public Double getProductPrice() {
+        return productPrice;
     }
 
-    public void setProdPrice(double prodPrice) {
-        this.prodPrice = prodPrice;
+    public void setProductPrice(Double productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public String getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(String isActive) {
-        this.isActive = isActive;
-    }
-  private String isActive;
-  
-    
+       
     
     
 }

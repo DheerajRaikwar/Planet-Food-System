@@ -1,5 +1,5 @@
 
-package theplanetfood.dao;
+package planetfood.dao;
 
 import java.sql.Connection;
 import java.util.Date;
@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import theplanetfood.dbutil.DBConnection;
-import theplanetfood.pojo.Order;
-import theplanetfood.pojo.OrderDetail;
+import planetfood.dbutil.DBConnection;
+import planetfood.Pojo.Order;
+import planetfood.Pojo.Order_details;
 
 /**
  *

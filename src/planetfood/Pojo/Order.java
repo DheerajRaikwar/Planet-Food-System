@@ -2,79 +2,80 @@
 package planetfood.Pojo;
 
 public class Order {
-    private String OrdId;
-    private String OrdDate;
-    private Double Gst;
-    private Double GstAmount;
-    private Double Discount;
-    private Double GrandTotal;
-    private String UserId;
-    private Double OrdAmount;
+    private String orderId;
+    private String orderDate;
+    private Double gst;
+    private Double gstAmount;
+    private Double discont;
+    private Double grandTotal;
+    private String userId;
+    private Double orderAmount;
 
-    public String getOrdId() {
-        return OrdId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrdId(String OrdId) {
-        this.OrdId = OrdId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public String getOrdDate() {
-        return OrdDate;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setOrdDate(String OrdDate) {
-        this.OrdDate = OrdDate;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
     public Double getGst() {
-        return Gst;
+        return gst;
     }
 
-    public void setGst(Double Gst) {
-        this.Gst = Gst;
+    public void setGst(Double gst) {
+        this.gst = gst;
     }
 
     public Double getGstAmount() {
-        return GstAmount;
+        return gstAmount;
     }
 
-    public void setGstAmount(Double GstAmount) {
-        this.GstAmount = GstAmount;
+    public void setGstAmount(Double gstAmount) {
+        this.gstAmount = gstAmount;
     }
 
-    public Double getDiscount() {
-        return Discount;
+    public Double getDiscont() {
+        return discont;
     }
 
-    public void setDiscount(Double Discount) {
-        this.Discount = Discount;
+    public void setDiscont(Double discont) {
+        this.discont = discont;
     }
 
     public Double getGrandTotal() {
-        return GrandTotal;
+        return grandTotal;
     }
 
-    public void setGrandTotal(Double GrandTotal) {
-        this.GrandTotal = GrandTotal;
+    public void setGrandTotal(Double grandTotal) {
+        this.grandTotal = grandTotal;
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
-    public void setUserId(String UserId) {
-        this.UserId = UserId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Double getOrdAmount() {
-        return OrdAmount;
+    public Double getOrderAmount() {
+        return orderAmount;
     }
 
-    public void setOrdAmount(Double OrdAmount) {
-        this.OrdAmount = OrdAmount;
+    public void setOrderAmount(Double orderAmount) {
+        this.orderAmount = orderAmount;
     }
-    
+
+      
     
     
 }

@@ -6,24 +6,25 @@
 package planetfood.Pojo;
 
 public class Categories {
-    private String CategoryId;
-    private String CategoryName;
+    private String categoryId;
+    private String categoryName;
 
     public String getCategoryId() {
-        return CategoryId;
+        return categoryId;
     }
 
-    public void setCategoryId(String CategoryId) {
-        this.CategoryId = CategoryId;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {
-        return CategoryName;
+        return categoryName;
     }
 
-    public void setCategoryName(String CategoryName) {
-        this.CategoryName = CategoryName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
+
     
     
 }

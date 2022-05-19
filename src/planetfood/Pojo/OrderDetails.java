@@ -1,28 +1,30 @@
 
 package planetfood.Pojo;
 
-public class Order_details {
+public class OrderDetails {
     
-    private String ordId;
-    private String prodId;
+    private String orderId;
+    private String productId;
     private double quantity;
     private double cost;
 
-    public String getOrdId() {
-        return ordId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOrdId(String ordId) {
-        this.ordId = ordId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
-    public String getProdId() {
-        return prodId;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
+
+    
 
     public double getQuantity() {
         return quantity;

@@ -4,17 +4,19 @@ package planetfood.Pojo;
 
 public class User {
     private String userId;
-    private String Username;
+    private String userName;
     private String password;
     private String userType;
 
-    public String getUsername() {
-        return Username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String Username) {
-        this.Username = Username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+    
 
     public String getUserId() {
         return userId;

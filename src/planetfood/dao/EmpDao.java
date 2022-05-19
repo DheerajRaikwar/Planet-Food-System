@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.dao;
+package planetfood.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,15 +12,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import theplanetfood.dbutil.DBConnection;
-import theplanetfood.pojo.Emp;
+import planetfood.Pojo.Employee;
+import planetfood.dbutil.DBConnection;
 
 /**
  *
  * @author ROYAL CHHORA
  */
 public class EmpDao {
-     public static boolean addEmp(Emp e)throws SQLException{
+     public static boolean addEmp(Employee e)throws SQLException{
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("insert into employees values(?,?,?,?)");
         ps.setString(1, e.getEmpId());
@@ -41,17 +41,17 @@ public class EmpDao {
         }
         return "E"+id;
     }
-    public static HashMap<String,Emp>getEmployeeByEmpId(String empid)throws SQLException
+    public static HashMap<String,Employee>getEmployeeByEmpId(String empid)throws SQLException
     {
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("select * from employees where empid=?");
         ps.setString(1, empid);
         ResultSet rs=ps.executeQuery();
-        HashMap<String,Emp>employee=new HashMap<>();
+        HashMap<String,Employee>employee=new HashMap<>();
         
         while(rs.next())
         {
-            Emp e=new Emp();
+            Employee e=new Employee();
             e.setEmpId(empid);
             e.setEmpName(rs.getString("ename"));
             e.setJob(rs.getString("job"));
@@ -62,7 +62,7 @@ public class EmpDao {
         
         
     }
-    public static boolean updateEmp(Emp e)throws SQLException{
+    public static boolean updateEmp(Employee e)throws SQLException{
         Connection conn=DBConnection.getConnection();
         PreparedStatement ps=conn.prepareStatement("update employees set ename=?,job=?,sal=? where empid=?");
      ps.setString(1, e.getEmpName());
@@ -84,14 +84,14 @@ public class EmpDao {
         }
         return allEmpId;
     }
-   public static ArrayList<Emp>getAllData()throws SQLException{
+   public static ArrayList<Employee>getAllData()throws SQLException{
        Connection conn=DBConnection.getConnection();
        Statement st=conn.createStatement();
-       ArrayList<Emp>allEmp=new ArrayList<>();
+       ArrayList<Employee>allEmp=new ArrayList<>();
        ResultSet rs=st.executeQuery("select * from employees");
        while(rs.next())
        {
-           Emp e=new Emp();
+           Employee e=new Employee();
            e.setEmpId(rs.getString("empid"));
            e.setEmpName(rs.getString("ename"));
            e.setJob(rs.getString("job"));

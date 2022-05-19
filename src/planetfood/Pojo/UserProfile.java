@@ -3,33 +3,34 @@ package planetfood.Pojo;
 
 
 public class UserProfile {
-    private static String Userid;
-    private static String username;
-    private static String usertype;
+    private static String userId;
+    private static String userName;
+    private static String userType;
 
-    public static String getUsername() {
-        return username;
+    public static String getUserId() {
+        return userId;
     }
 
-    public static void setUsername(String username) {
-        UserProfile.username = username;
+    public static void setUserId(String userId) {
+        UserProfile.userId = userId;
     }
 
-    public static String getUsertype() {
-        return usertype;
+    public static String getUserName() {
+        return userName;
     }
 
-    public static void setUsertype(String usertype) {
-        UserProfile.usertype = usertype;
+    public static void setUserName(String userName) {
+        UserProfile.userName = userName;
     }
 
-    public static String getUserid() {
-        return Userid;
+    public static String getUserType() {
+        return userType;
     }
 
-    public static void setUserid(String Userid) {
-        UserProfile.Userid = Userid;
+    public static void setUserType(String userType) {
+        UserProfile.userType = userType;
     }
+
     
     
 }

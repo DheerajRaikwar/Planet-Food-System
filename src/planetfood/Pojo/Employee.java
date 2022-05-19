@@ -4,42 +4,44 @@ package planetfood.Pojo;
 
 public class Employee {
     
-    private String EmpName;
-    private String EmpId;
-    private double Salary;
-    private String Job;
+    private String employeeId;
+    private String employeeName;
+    private double salary;
+    private String job;
 
-    public String getEmpName() {
-        return EmpName;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmpName(String EmpName) {
-        this.EmpName = EmpName;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getEmpId() {
-        return EmpId;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setEmpId(String EmpId) {
-        this.EmpId = EmpId;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public double getSalary() {
-        return Salary;
+        return salary;
     }
 
-    public void setSalary(double Salary) {
-        this.Salary = Salary;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public String getJob() {
-        return Job;
+        return job;
     }
 
-    public void setJob(String Job) {
-        this.Job = Job;
+    public void setJob(String job) {
+        this.job = job;
     }
+
+    
     
     
 }
