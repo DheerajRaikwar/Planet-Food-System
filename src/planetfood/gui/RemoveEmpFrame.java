@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.EmpDao;
-import theplanetfood.pojo.Emp;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.EmpDao;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -20,7 +20,7 @@ import theplanetfood.pojo.UserProfile;
  */
 public class RemoveEmpFrame extends javax.swing.JFrame {
  private ArrayList<String>empid;
-    private HashMap<String,Emp>allEmpData;
+    private HashMap<String,Employee>allEmpData;
     private DefaultTableModel model;
     private String eId;
     /**
@@ -29,7 +29,7 @@ public class RemoveEmpFrame extends javax.swing.JFrame {
     public RemoveEmpFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
        loadEmpId();
     }
     public void loadEmpId(){
@@ -232,9 +232,9 @@ public class RemoveEmpFrame extends javax.swing.JFrame {
          model=(DefaultTableModel)jtEmpDetails.getModel();
         for(String empId:allEmpData.keySet())
         {
-            Emp e=allEmpData.get(empId);
-            rows[0]=e.getEmpId();
-            rows[1]=e.getEmpName();
+            Employee e=allEmpData.get(empId);
+            rows[0]=e.getEmployeeId();
+            rows[1]=e.getEmployeeName();
             rows[2]=e.getJob();
             rows[3]=e.getSalary();
             model.addRow(rows);

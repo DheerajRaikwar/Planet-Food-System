@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -25,7 +25,7 @@ public class EditCategoryFrame extends javax.swing.JFrame {
     public EditCategoryFrame() {
         initComponents();
        
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         loadCatId();
         this.setLocationRelativeTo(null);
     }

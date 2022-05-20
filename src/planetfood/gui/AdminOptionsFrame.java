@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import theplanetfood.pojo.UserProfile;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -22,7 +22,7 @@ public class AdminOptionsFrame extends javax.swing.JFrame {
     public AdminOptionsFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-               lblUsername.setText("Hello "+UserProfile.getUsername());
+               lblUsername.setText("Hello "+UserProfile.getUserName());
                 
     }
     
@@ -322,7 +322,7 @@ public class AdminOptionsFrame extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/theplanetfood/gui/manager.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planetfood/gui/manager.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 153));

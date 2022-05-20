@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.EmpDao;
-import theplanetfood.pojo.Emp;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.EmpDao;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
  * @author ROYAL CHHORA
  */
 public class EditEmpFrame extends javax.swing.JFrame {
-  private HashMap<String,Emp>employee;
+  private HashMap<String,Employee>employee;
     private ArrayList<String>allEmpId;
     private String empid,ename,job;
     private double sal;
@@ -28,7 +28,7 @@ public class EditEmpFrame extends javax.swing.JFrame {
     public EditEmpFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         try{
         allEmpId=EmpDao.getAllEmpId();
         jcEmpId.removeAllItems();
@@ -282,8 +282,8 @@ public class EditEmpFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
        
-        Emp e=employee.get(empid);
-        txtEmpName.setText(e.getEmpName());
+        Employee e=employee.get(empid);
+        txtEmpName.setText(e.getEmployeeName());
         
         txtSalary.setText(String.valueOf(e.getSalary()));
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -294,9 +294,9 @@ public class EditEmpFrame extends javax.swing.JFrame {
         job=jcJob.getSelectedItem().toString();
         sal=Double.parseDouble(txtSalary.getText());
         
-        Emp e=new Emp();
-        e.setEmpId(empid);
-        e.setEmpName(ename);
+        Employee e=new Employee();
+        e.setEmployeeId(empid);
+        e.setEmployeeName(ename);
         e.setJob(job);
         e.setSalary(sal);
         try{

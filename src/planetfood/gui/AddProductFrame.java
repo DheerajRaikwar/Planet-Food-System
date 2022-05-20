@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.dao.ProductDao;
+import planetfood.pojo.Product;
+import planetfood.pojo.UserProfile;
 
 /**
  *

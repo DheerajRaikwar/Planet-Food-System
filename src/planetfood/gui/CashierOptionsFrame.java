@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import javax.swing.JOptionPane;
-import theplanetfood.pojo.UserProfile;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -20,7 +20,7 @@ public class CashierOptionsFrame extends javax.swing.JFrame {
     public CashierOptionsFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
     }
 
     /**

@@ -1,5 +1,5 @@
 
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -30,6 +30,7 @@ public class SplashScreenFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
+        progressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Planet Food");
@@ -45,7 +46,7 @@ public class SplashScreenFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,11 +60,17 @@ public class SplashScreenFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(progressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +119,7 @@ public class SplashScreenFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JProgressBar progressBar1;
     // End of variables declaration//GEN-END:variables
 
 class SplashThread extends Thread
@@ -120,10 +128,10 @@ class SplashThread extends Thread
     {
         int count=1;
         Random r=new Random();
-        while(jProgressBar1.getValue()<jProgressBar1.getMaximum()){
+        while(progressBar1.getValue()<progressBar1.getMaximum()){
         try
         {
-            jProgressBar1.setValue((int)count);
+            progressBar1.setValue((int)count);
             Thread.sleep(1200);
             count=count+r.nextInt(100);
         }
@@ -142,3 +150,7 @@ class SplashThread extends Thread
     }
 }
 }
+
+
+
+

@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.EmpDao;
-import theplanetfood.dao.UserDao;
-import theplanetfood.pojo.Emp;
-import theplanetfood.pojo.User;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.EmpDao;
+import planetfood.dao.UserDao;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.User;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -21,7 +21,7 @@ import theplanetfood.pojo.UserProfile;
  */
 public class RegisterCashierFrame extends javax.swing.JFrame {
         private ArrayList<String>empid;
-        private HashMap<String,Emp>employee;
+        private HashMap<String,Employee>employee;
         private String EmpId;
         private String ename;
         private String userId;
@@ -31,7 +31,7 @@ public class RegisterCashierFrame extends javax.swing.JFrame {
      */
     public RegisterCashierFrame() {
         initComponents();
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         this.setLocationRelativeTo(null);
         try
         {
@@ -300,7 +300,7 @@ public class RegisterCashierFrame extends javax.swing.JFrame {
         User u=new User();
         u.setUserId(userId);
         u.setUserName(ename);
-        u.setEmpId(EmpId);
+        u.setEmployeeId(EmpId);
         u.setPassword(passward);
         u.setUserType("CASHIER");
         try
@@ -331,8 +331,8 @@ public class RegisterCashierFrame extends javax.swing.JFrame {
             EmpId=jcEmpId.getSelectedItem().toString();
             employee=EmpDao.getEmployeeByEmpId(EmpId);
             for(String empid:employee.keySet()){
-                Emp e=employee.get(empid);
-                ename=e.getEmpName();
+                Employee e=employee.get(empid);
+                ename=e.getEmployeeName();
             }
         }
         catch(SQLException s)

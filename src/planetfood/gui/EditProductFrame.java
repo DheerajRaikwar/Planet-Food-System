@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -34,7 +34,7 @@ public class EditProductFrame extends javax.swing.JFrame {
     public EditProductFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello"+UserProfile.getUsername());
+        lblUsername.setText("Hello"+UserProfile.getUserName());
         loadProductDetails();
     }
 public void loadProductDetails(){
@@ -309,8 +309,8 @@ public int validateInput(){
             return;
         prodId=jcPrdId.getSelectedItem().toString();
         Product p=productList.get(prodId);
-        txtPrdName.setText(p.getProdName());
-        txtPrdPrice.setText(String.valueOf(p.getProdPrice()));
+        txtPrdName.setText(p.getProductName());
+        txtPrdPrice.setText(String.valueOf(p.getProductPrice()));
         prodIsActive=p.getIsActive();
         if(prodIsActive.equalsIgnoreCase("Y"))
             chkIsActive.setSelected(true);
@@ -354,10 +354,10 @@ public int validateInput(){
      }
      try
      {
-         p.setCatId(catId);
-         p.setProdId(prodId);
-         p.setProdName(prodName);
-         p.setProdPrice(prodPrice);
+         p.setCategoryId(catId);
+         p.setProductId(prodId);
+         p.setProductName(prodName);
+         p.setProductPrice(prodPrice);
          p.setIsActive(prodIsActive);
          boolean status=ProductDao.updateProduct(p);
          if(status)

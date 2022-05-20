@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.UserDao;
-import theplanetfood.pojo.User;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.UserDao;
+import planetfood.Pojo.User;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -27,7 +29,7 @@ public class RemoveCashierFrame extends javax.swing.JFrame {
      */
     public RemoveCashierFrame() {
         initComponents();
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         this.setLocationRelativeTo(null);
         loadUserId();
     }
@@ -283,23 +285,20 @@ public class RemoveCashierFrame extends javax.swing.JFrame {
         if(jcUserId.getSelectedItem()==null)
             return;
          UserId=jcUserId.getSelectedItem().toString();
-         try{
-             allData=UserDao.getDataByUserId(UserId);
-             Object[] rows=new Object[3];
-          model=(DefaultTableModel)jtUserDetails.getModel();
+      try {
+          allData = UserDao.getDataByUserId(UserId);
+      } catch (SQLException ex) {
+          Logger.getLogger(RemoveCashierFrame.class.getName()).log(Level.SEVERE, null, ex);
+      }
+         Object[] rows=new Object[3];
+         model=(DefaultTableModel)jtUserDetails.getModel();
          for(String userid:allData.keySet()){
-             User u=allData.get(userid);
+             User u = allData.get(userid);
              rows[0]=u.getUserId();
              rows[1]=u.getUserName();
-             rows[2]=u.getEmpId();
+             rows[2]=u.getEmployeeId();
              model.addRow(rows);
-             }
-            }  
-            catch(SQLException s)
-            {
-                JOptionPane.showMessageDialog(null,"some problem in DataBase","Error!",JOptionPane.ERROR_MESSAGE);
-                        s.getStackTrace();
-            }
+         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
