@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.OrderDao;
-import theplanetfood.pojo.Order;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.OrderDao;
+import planetfood.Pojo.Order;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -24,17 +24,17 @@ public class ViewTransactionFrame extends javax.swing.JFrame {
      */
     public ViewTransactionFrame() {
         initComponents();
-         lblUsername.setText("HELLO "+UserProfile.getUsername());
+         lblUsername.setText("HELLO "+UserProfile.getUserName());
         this.setLocationRelativeTo(null);
         try{
             Object[] rows=new Object[3];
             DefaultTableModel model=(DefaultTableModel)jtTransaction.getModel();
-            ArrayList<Order>transactions=OrderDao.getTransactions(UserProfile.getUserid());
+            ArrayList<Order>transactions=OrderDao.getTransactions(UserProfile.getUserId());
             jtTransaction.removeAll();
             for(Order o:transactions)
             {
-                rows[0]=o.getOrdId();
-                rows[1]=o.getOrdDate();
+                rows[0]=o.getOrderId();
+                rows[1]=o.getOrderDate();
                 rows[2]=o.getGrandTotal();
                 model.addRow(rows);
             }

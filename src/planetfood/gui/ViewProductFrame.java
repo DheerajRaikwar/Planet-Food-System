@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ViewProductFrame extends javax.swing.JFrame {
     public ViewProductFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello "+UserProfile.getUsername());
+        lblUsername.setText("Hello "+UserProfile.getUserName());
        
     }
     

@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.pojo.Category;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.Pojo.Categories;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -24,17 +24,17 @@ public class ViewAllCategoriesFrame extends javax.swing.JFrame {
      */
     public ViewAllCategoriesFrame() {
         initComponents();
-         lblUsername.setText("HELL "+UserProfile.getUsername());
+         lblUsername.setText("HELL "+UserProfile.getUserName());
         this.setLocationRelativeTo(null);
         try{
-            ArrayList<Category>allCategories=CategoryDao.getAllData();
+            ArrayList<Categories>allCategories=CategoryDao.getAllData();
             DefaultTableModel model=(DefaultTableModel)jtCatDet.getModel();
             Object[] rows=new Object[2];
             jtCatDet.removeAll();
-            for(Category c:allCategories)
+            for(Categories c:allCategories)
             {
-                rows[0]=c.getCatId();
-                rows[1]=c.getCatName();
+                rows[0]=c.getCategoryId();
+                rows[1]=c.getCategoryName();
                 model.addRow(rows);
             }
         }

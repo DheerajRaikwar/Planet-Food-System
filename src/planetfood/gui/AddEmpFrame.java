@@ -8,8 +8,8 @@ package planetfood.gui;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import planetfood.dao.EmpDao;
-import planetfood.pojo.Emp;
-import planetfood.pojo.UserProfile;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -23,7 +23,7 @@ public class AddEmpFrame extends javax.swing.JFrame {
     public AddEmpFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         try{
         txtEmpId.setText(EmpDao.getNewId());
         }
@@ -284,9 +284,9 @@ public class AddEmpFrame extends javax.swing.JFrame {
         }
         try{
             double salary=Double.parseDouble(sal);
-            Emp e=new Emp();
-            e.setEmpId(empId);
-            e.setEmpName(empName);
+            Employee e=new Employee();
+            e.setEmployeeId(empId);
+            e.setEmployeeName(empName);
             e.setJob(job);
             e.setSalary(salary);
             boolean result=EmpDao.addEmp(e);

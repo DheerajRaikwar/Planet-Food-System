@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -27,7 +27,7 @@ public class ViewSingleProductFrame extends javax.swing.JFrame {
     public ViewSingleProductFrame() {
         initComponents();
                 this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello "+UserProfile.getUsername());
+        lblUsername.setText("Hello "+UserProfile.getUserName());
         loadProductDetails();
     }
 public void loadProductDetails() {
@@ -69,8 +69,8 @@ public void loadProductDetails() {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jcCatId = new javax.swing.JComboBox<>();
-        jcProdId = new javax.swing.JComboBox<>();
+        jcCatId = new javax.swing.JComboBox<String>();
+        jcProdId = new javax.swing.JComboBox<String>();
         txtProdName = new javax.swing.JTextField();
         txtProdPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -97,7 +97,7 @@ public void loadProductDetails() {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/theplanetfood/gui/menu-1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planetfood/gui/menu-1.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
@@ -128,14 +128,14 @@ public void loadProductDetails() {
             }
         });
 
-        jcCatId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcCatId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcCatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCatIdActionPerformed(evt);
             }
         });
 
-        jcProdId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcProdId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcProdId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcProdIdActionPerformed(evt);
@@ -294,8 +294,8 @@ public void loadProductDetails() {
             return;
         String prodId=jcProdId.getSelectedItem().toString();
         Product p=productList.get(prodId);
-        txtProdName.setText(p.getProdName());
-        txtProdPrice.setText(String.valueOf(p.getProdPrice()));
+        txtProdName.setText(p.getProductName());
+        txtProdPrice.setText(String.valueOf(p.getProductPrice()));
       
       
     }//GEN-LAST:event_jcProdIdActionPerformed

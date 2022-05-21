@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ViewAllProductsFrame extends javax.swing.JFrame {
     public ViewAllProductsFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello"+UserProfile.getUsername());
+        lblUsername.setText("Hello"+UserProfile.getUserName());
         showDataInTable();
     }
     public void showDataInTable(){
@@ -40,10 +40,10 @@ public class ViewAllProductsFrame extends javax.swing.JFrame {
                 DefaultTableModel model=(DefaultTableModel)jtProductDetails.getModel();
                 for(Product p:productList)
                 {
-                    rows[0]=p.getProdId();
-                    rows[1]=p.getCatId();
-                    rows[2]=p.getProdName();
-                    rows[3]=p.getProdPrice();
+                    rows[0]=p.getProductId();
+                    rows[1]=p.getCategoryId();
+                    rows[2]=p.getProductName();
+                    rows[3]=p.getProductPrice();
                     rows[4]=p.getIsActive();
                     model.addRow(rows);
                     
@@ -88,7 +88,7 @@ public class ViewAllProductsFrame extends javax.swing.JFrame {
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("jLabel3");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/theplanetfood/gui/menu-1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planetfood/gui/menu-1.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
         btnBack.setText("Back");

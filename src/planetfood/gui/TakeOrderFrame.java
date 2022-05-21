@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.dao.OrderDao;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.Order;
-import theplanetfood.pojo.OrderDetail;
-import theplanetfood.pojo.Product;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.dao.OrderDao;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.Order;
+import planetfood.Pojo.OrderDetails;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -26,7 +26,7 @@ import theplanetfood.pojo.UserProfile;
 public class TakeOrderFrame extends javax.swing.JFrame {
     private HashMap<String,String> categories;
         private HashMap<String,Product> productList;
-        private ArrayList<OrderDetail>orderList=new ArrayList<OrderDetail>();
+        private ArrayList<OrderDetails>orderList=new ArrayList<OrderDetails>();
         private Product p;
         private String catId;
                 private String prodId;
@@ -55,7 +55,7 @@ public class TakeOrderFrame extends javax.swing.JFrame {
         initComponents();
           this.setLocationRelativeTo(null);
           loadProductDetails();
-         lblUsername.setText("Hello "+UserProfile.getUsername());
+         lblUsername.setText("Hello "+UserProfile.getUserName());
          model=(DefaultTableModel)jtProductDetails.getModel();
     }
 public void loadProductDetails(){
@@ -578,9 +578,9 @@ public void loadProductDetails(){
             
             grandTotal=Math.round(subTotal+gstAmount);
             txtGrandTotal.setText(String.valueOf(grandTotal));
-            OrderDetail obj=new OrderDetail();
-            obj.setOrdId(ordId);
-            obj.setProdId(prodId);
+            OrderDetails obj=new OrderDetails();
+            obj.setOrderId(ordId);
+            obj.setProductId(prodId);
             obj.setQuantity(Double.parseDouble(quantity));
             obj.setCost(amount);
             orderList.add(obj);
@@ -625,23 +625,23 @@ public void loadProductDetails(){
             return;
          prodId=jcPrdId.getSelectedItem().toString();
          p=productList.get(prodId);
-        txtPrdName.setText(p.getProdName());
-        txtPrdPrice.setText(String.valueOf(p.getProdPrice()));
+        txtPrdName.setText(p.getProductName());
+        txtPrdPrice.setText(String.valueOf(p.getProductPrice()));
       
     }//GEN-LAST:event_jcPrdIdActionPerformed
 
     private void btnPayBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayBillActionPerformed
   Order obj=new Order();
-  obj.setOrdId(ordId);
+  obj.setOrderId(ordId);
   java.util.Date today=new java.util.Date();
   SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
-  obj.setOrdDate(sdf.format(today));
+  obj.setOrderDate(sdf.format(today));
   obj.setGst(5.0);
   obj.setGstAmount(gstAmount);
   obj.setOrderAmount(subTotal);
   obj.setGrandTotal(grandTotal);
-  obj.setDiscount(discountAmount);
-  obj.setUserid(UserProfile.getUserid());
+  obj.setDiscont(discountAmount);
+  obj.setUserId(UserProfile.getUserId());
   String message="Your bill details\nBill Amount: Rs "+actualTotal;
   message+="\nDiscount:RS "+discountAmount;
   message+="\nAmount Payable:Rs "+grandTotal;

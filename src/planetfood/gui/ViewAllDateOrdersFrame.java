@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.OrderDao;
-import theplanetfood.pojo.Order;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.OrderDao;
+import planetfood.Pojo.Order;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -26,7 +26,7 @@ Date startDate,endDate;
     public ViewAllDateOrdersFrame() {
         initComponents();
          this.setLocationRelativeTo(null);
-               lblUsername.setText("Hello "+UserProfile.getUsername());
+               lblUsername.setText("Hello "+UserProfile.getUserName());
     }
 boolean validateInput()
 {
@@ -264,17 +264,17 @@ else
         DefaultTableModel model=(DefaultTableModel)jtOrderDetails.getModel();
         for(Order obj: orderList)
         {
-            rows[0]=obj.getOrdId();
-                        rows[1]=obj.getOrdDate();
+            rows[0]=obj.getOrderId();
+                        rows[1]=obj.getOrderDate();
             rows[2]=obj.getOrderAmount();
-            rows[3]=obj.getDiscount();
+            rows[3]=obj.getDiscont();
             
             rows[4]=obj.getGst();
             
             rows[5]=obj.getGstAmount();
             rows[6]=obj.getGrandTotal();
             
-            rows[7]=obj.getUserid();
+            rows[7]=obj.getUserId();
             model.addRow(rows);
 
         }

@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.EmpDao;
-import theplanetfood.pojo.Emp;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.EmpDao;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
  * @author ROYAL CHHORA
  */
 public class ViewSingleEmpFrame extends javax.swing.JFrame {
-     private HashMap<String,Emp>employee;
+     private HashMap<String,Employee>employee;
     private ArrayList<String>allEmpId;
 
     /**
@@ -27,7 +27,7 @@ public class ViewSingleEmpFrame extends javax.swing.JFrame {
     public ViewSingleEmpFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         loadEmpDetails();
 
     }
@@ -251,8 +251,8 @@ ViewEmpFrame viewFrame=new ViewEmpFrame();
             ex.printStackTrace();
         }
         
-        Emp e=employee.get(empId);
-         txtEmpName.setText(e.getEmpName());
+        Employee e=employee.get(empId);
+         txtEmpName.setText(e.getEmployeeName());
          txtJob.setText(e.getJob());
          txtSalary.setText(String.valueOf(e.getSalary()));  
     }//GEN-LAST:event_jcEmpIdActionPerformed

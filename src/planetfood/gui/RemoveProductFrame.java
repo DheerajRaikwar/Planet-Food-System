@@ -1,14 +1,14 @@
 
 
  
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import theplanetfood.dao.CategoryDao;
-import theplanetfood.dao.ProductDao;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.CategoryDao;
+import planetfood.dao.ProductDao;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -22,7 +22,7 @@ private HashMap<String,String> categories;
     public RemoveProductFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello "+UserProfile.getUsername());
+        lblUsername.setText("Hello "+UserProfile.getUserName());
         loadProductDetails();
     
  

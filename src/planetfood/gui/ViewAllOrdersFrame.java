@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.OrderDao;
-import theplanetfood.pojo.Order;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.OrderDao;
+import planetfood.Pojo.Order;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ViewAllOrdersFrame extends javax.swing.JFrame {
     public ViewAllOrdersFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello "+UserProfile.getUsername());
+        lblUsername.setText("Hello "+UserProfile.getUserName());
         loadAllOrdersToTable();
     }
 
@@ -194,13 +194,13 @@ public class ViewAllOrdersFrame extends javax.swing.JFrame {
         Object[] rows=new Object[8];
         for(Order o:allOrders)
         {
-            rows[0]=o.getOrdId();
-            rows[1]=o.getOrdDate();
+            rows[0]=o.getOrderId();
+            rows[1]=o.getOrderDate();
             rows[2]=o.getOrderAmount();
             rows[3]=o.getGst();
             rows[4]=o.getGstAmount();
-            rows[5]=o.getDiscount();
-            rows[6]=o.getUserid();
+            rows[5]=o.getDiscont();
+            rows[6]=o.getUserId();
             rows[7]=o.getGrandTotal();
             model.addRow(rows);
             System.out.println(rows[0]);

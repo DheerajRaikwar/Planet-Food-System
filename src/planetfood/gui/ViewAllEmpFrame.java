@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package theplanetfood.gui;
+package planetfood.gui;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import theplanetfood.dao.EmpDao;
-import theplanetfood.pojo.Emp;
-import theplanetfood.pojo.UserProfile;
+import planetfood.dao.EmpDao;
+import planetfood.Pojo.Employee;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -25,22 +25,22 @@ public class ViewAllEmpFrame extends javax.swing.JFrame {
     public ViewAllEmpFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         loadAllData();
     }
     void loadAllData(){
         try{
-        ArrayList<Emp>EmpList=EmpDao.getAllData();
+        ArrayList<Employee>EmpList=EmpDao.getAllData();
             if(EmpList.isEmpty())
                 JOptionPane.showMessageDialog(null,"Employee are not Present!","Error!",JOptionPane.ERROR_MESSAGE);
             else{
                 Object[] rows=new Object[4];
                 DefaultTableModel model=(DefaultTableModel)jtAllEmp.getModel();
                 
-                for(Emp e:EmpList)
+                for(Employee e:EmpList)
                 {
-                rows[0]=e.getEmpId();
-                rows[1]=e.getEmpName();
+                rows[0]=e.getEmployeeId();
+                rows[1]=e.getEmployeeName();
                 rows[2]=e.getJob();
                 rows[3]=e.getSalary();
                 model.addRow(rows);

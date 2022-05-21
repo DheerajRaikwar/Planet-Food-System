@@ -10,8 +10,8 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import planetfood.dao.CategoryDao;
 import planetfood.dao.ProductDao;
-import planetfood.pojo.Product;
-import planetfood.pojo.UserProfile;
+import planetfood.Pojo.Product;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -26,7 +26,7 @@ public class AddProductFrame extends javax.swing.JFrame {
     public AddProductFrame() { 
         initComponents();
         this.setLocationRelativeTo(null);
-        lblUsername.setText("Hello"+UserProfile.getUsername());
+        lblUsername.setText("Hello"+UserProfile.getUserName());
     try
     {
         categories=CategoryDao.getAllcategoryID();
@@ -101,7 +101,7 @@ public class AddProductFrame extends javax.swing.JFrame {
         txtProdId = new javax.swing.JTextField();
         txtprodName = new javax.swing.JTextField();
         txtprodPrice = new javax.swing.JTextField();
-        jcCatId = new javax.swing.JComboBox<>();
+        jcCatId = new javax.swing.JComboBox<String>();
         btnAddProd = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -113,7 +113,7 @@ public class AddProductFrame extends javax.swing.JFrame {
 
         panel.setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/theplanetfood/gui/diet.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planetfood/gui/diet.png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -153,7 +153,7 @@ public class AddProductFrame extends javax.swing.JFrame {
             }
         });
 
-        jcCatId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jcCatId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         jcCatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCatIdActionPerformed(evt);
@@ -278,7 +278,7 @@ public class AddProductFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(72, 72, 72)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -331,10 +331,10 @@ if(result==-1)
 try
 {
     Product p=new Product();
-    p.setProdId(txtProdId.getText());
-    p.setCatId(catId);
-    p.setProdName(prodName);
-    p.setProdPrice(prodPrice);
+    p.setProductId(txtProdId.getText());
+    p.setCategoryId(catId);
+    p.setProductName(prodName);
+    p.setProductPrice(prodPrice);
     p.setIsActive("Y");
         boolean status=ProductDao.addProduct(p);
 

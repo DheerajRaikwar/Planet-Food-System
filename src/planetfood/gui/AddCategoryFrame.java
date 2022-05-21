@@ -8,7 +8,7 @@ package planetfood.gui;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import planetfood.dao.CategoryDao;
-import planetfood.pojo.UserProfile;
+import planetfood.Pojo.UserProfile;
 
 /**
  *
@@ -23,7 +23,7 @@ public class AddCategoryFrame extends javax.swing.JFrame {
     public AddCategoryFrame() {
         
          initComponents();
-        lblUsername.setText("HELLO "+UserProfile.getUsername());
+        lblUsername.setText("HELLO "+UserProfile.getUserName());
         this.setLocationRelativeTo(null);
         loadCatId();
     }

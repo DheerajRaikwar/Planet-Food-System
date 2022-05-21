@@ -304,7 +304,7 @@ private String getUserType()
             UserProfile.setUserName(username);
              UserProfile.setUserType(userType);
              UserProfile.setUserId(userid);
-             if(user.getUserType().equalsIgnoreCase("ADMIN"))
+             if(user.getUserType().equalsIgnoreCase("admin"))
              {
            AdminOptionsFrame adminOptionsFrame=new AdminOptionsFrame();
           adminOptionsFrame.setVisible(true);
