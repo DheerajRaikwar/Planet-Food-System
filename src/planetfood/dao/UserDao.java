@@ -45,9 +45,10 @@ public class UserDao {
         PreparedStatement ps=conn.prepareStatement("insert into users values(?,?,?,?,?)");
         ps.setString(1,u.getUserId() );
         ps.setString(2, u.getUserName());
-        ps.setString(3, u.getEmployeeId());
-        ps.setString(4, u.getPassword());
-        ps.setString(5, u.getUserType());
+         ps.setString(3, u.getPassword());
+         ps.setString(4, u.getUserType());
+        ps.setString(5, u.getEmployeeId());    
+        
         int result=ps.executeUpdate();
         return (result==1);
     }
@@ -55,7 +56,7 @@ public class UserDao {
         Connection conn=DBConnection.getConnection();
         Statement st=conn.createStatement();
         ArrayList<String>userId=new ArrayList<>();
-        ResultSet rs=st.executeQuery("select userid from users where usertype='CASHIER'");
+        ResultSet rs = st.executeQuery("select userid from users where usertype='CASHIER'");
         while(rs.next()){
             String uId=rs.getString("userid");
             userId.add(uId);
